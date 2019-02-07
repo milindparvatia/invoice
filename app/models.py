@@ -12,7 +12,7 @@ INFO_CHOICES = [('sales', 'sales'),
 
 class Items(models.Model):
     type = models.CharField(choices=TYPE_CHOICES, max_length=10)
-    image = models.ImageField(upload_to='media_data')
+    # image = models.ImageField(upload_to='media_data')
     item_name = models.TextField(max_length=50)
     sku = models.PositiveIntegerField()
     unit = models.PositiveIntegerField()

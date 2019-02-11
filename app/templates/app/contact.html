@@ -1,3 +1,5 @@
+{% extends "app/layout.html" %}
+
 {% block content %}
 <form action="{% url 'contact' %}" method="post">
     {% csrf_token %}

@@ -12,7 +12,8 @@ INFO_CHOICES = [('sales', 'sales'),
 
 class Items(models.Model):
     type = models.CharField(choices=TYPE_CHOICES, max_length=10)
-    # image = models.ImageField(upload_to='media_data')
+    profile_pic = models.ImageField(
+        upload_to='media_data', default='/profile-pic.png')
     item_name = models.CharField(max_length=50)
     sku = models.PositiveIntegerField()
     unit = models.PositiveIntegerField()
@@ -22,17 +23,3 @@ class Items(models.Model):
     rate = models.FloatField()
     amount = models.FloatField()
     description = models.CharField(max_length=100, blank=True, default='')
-
-
-class Customer(models.Model):
-    first_name = models.CharField(max_length=50)
-    item_name = models.CharField(max_length=50)
-    sku = models.PositiveIntegerField()
-    unit = models.PositiveIntegerField()
-    hsn_sac = models.CharField(max_length=50)
-    tax = models.CharField(choices=TAX_CHOICES, max_length=10)
-    information = models.CharField(choices=INFO_CHOICES, max_length=10)
-    rate = models.FloatField()
-    amount = models.FloatField()
-    description = models.CharField(max_length=100, blank=True, default='')
-

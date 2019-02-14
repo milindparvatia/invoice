@@ -4,7 +4,12 @@ from .forms import ItemsForm
 
 
 def index(request):
-    return render(request, 'app/index.html')
+    puserdata = Items.objects.all().values()
+    image = puserdata[0]['profile_pic']
+    instance = {
+        'image': image,
+    }
+    return render(request, 'app/index.html', instance)
 
 
 def purchase(request):
@@ -34,7 +39,6 @@ def items(request):
         'form': form
     }
     return render(request, 'app/items.html', instance)
-    
 
 
 def contact(request):

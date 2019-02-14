@@ -9,7 +9,7 @@ class ItemsForm(forms.ModelForm):
         model = Items
         fields = [
             'type',
-            # 'image',
+            'profile_pic',
             'item_name',
             'sku',
             'unit',

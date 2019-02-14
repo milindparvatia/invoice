@@ -38,7 +38,7 @@ STATE_CHOICES = [('A', 'A'),
 class Items(models.Model):
     type = models.CharField(choices=TYPE_CHOICES, max_length=10)
     profile_pic = models.ImageField(
-        upload_to='media_data', default='/profile-pic.png')
+        upload_to='media_data')
     item_name = models.CharField(max_length=50)
     sku = models.PositiveIntegerField()
     unit = models.PositiveIntegerField()

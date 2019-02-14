@@ -8,7 +8,7 @@ TAX_CHOICES = [('tax', 'taxable'),
 
 INFO_CHOICES = [('sales', 'sales'),
                 ('purchase', 'purchase')]
-        
+
 CUST_CHOICES = [('v', 'Vendor'),
                 ('c', 'Client')]
 
@@ -37,7 +37,8 @@ STATE_CHOICES = [('A', 'A'),
 
 class Items(models.Model):
     type = models.CharField(choices=TYPE_CHOICES, max_length=10)
-    # image = models.ImageField(upload_to='media_data')
+    profile_pic = models.ImageField(
+        upload_to='media_data', default='/profile-pic.png')
     item_name = models.CharField(max_length=50)
     sku = models.PositiveIntegerField()
     unit = models.PositiveIntegerField()

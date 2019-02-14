@@ -1,5 +1,9 @@
 {% extends "app/layout.html" %}
 
 {% block content %}
-<h1>hello items</h1>
+<form action="{% url 'items' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">submit</button>
+</form>
 {% endblock %}

@@ -20,10 +20,6 @@ def reports(request):
 
 
 def items(request):
-    return render(request, 'app/items.html')
-
-
-def contact(request):
     if request.method == 'POST':
         form = ItemsForm(request.POST)
         if form.is_valid():
@@ -37,4 +33,9 @@ def contact(request):
     instance = {
         'form': form
     }
-    return render(request, 'app/contact.html', instance)
+    return render(request, 'app/items.html', instance)
+    
+
+
+def contact(request):
+    return render(request, 'app/contact.html')

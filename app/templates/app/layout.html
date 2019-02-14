@@ -13,6 +13,9 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
         integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
         crossorigin="anonymous"></script>
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />    
+
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
         integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
         crossorigin="anonymous"></script>
@@ -30,34 +33,54 @@
             </div>
             <ul class="list-unstyled components">
                 <li>
-                    <a href="{% url 'index' %}">Dashboard</a>
+                    <a href="{% url 'index' %}"><i class="fas fa-desktop"></i>&nbsp;&nbsp;Dashboard</a>
                 </li>
                 <li>
-                    <a href="{% url 'contact' %}">Contact/Costomer</a>
+                    <a href="{% url 'contact' %}"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;Contact/Customer</a>
                 </li>
                 <li>
-                    <a href="{% url 'items' %}">Items</a>
+                    <a href="{% url 'items' %}"><i class="fas fa-list"></i>&nbsp;&nbsp;Items</a>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
-                        class="dropdown-toggle">Sales</a>
+                        class="dropdown-toggle"><i class="fas fa-signal"></i>&nbsp;&nbsp;Sales</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <div class="show">
                         <li>
                             <a href="#">Estimates</a>
                         </li>
                         <li>
-                            <a href="#">invoices</a>
+                            <a href="#">Retainer Invoices</a>
                         </li>
+                        <li>
+                            <a href="#">Sales Orders</a>
+                        </li>
+                        <li>
+                            <a href="#">Delivery Challans</a>
+                        </li>
+                        <li>
+                            <a href="#">Invoices</a>
+                        </li>
+                        <li>
+                            <a href="#">Payment Received</a>
+                        </li>
+                        <li>
+                            <a href="#">Recurring Invoices</a>
+                        </li>
+                        <li>
+                            <a href="#">Credit Notes</a>
+                        </li>
+                    </div>
                     </ul>
                 </li>
                 <li>
-                    <a href="{% url 'purchase' %}">Purchase</a>
+                    <a href="{% url 'purchase' %}"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Purchase</a>
                 </li>
                 <li>
-                    <a href="{% url 'reports' %}">Reports</a>
+                    <a href="{% url 'reports' %}"><i class="fas fa-chart-line"></i>&nbsp;&nbsp;Reports</a>
                 </li>
                 <li>
-                    <a href="{% url 'settings' %}">Settings</a>
+                    <a href="{% url 'settings' %}"><i class="fas fa-cog"></i>&nbsp;&nbsp;Settings</a>
                 </li>
             </ul>
         </nav>
@@ -67,7 +90,7 @@
                 <button type="button" id="sidebarCollapse" class="btn btn-info">
                     <i class="fas fa-align-left"></i>
                 </button>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav navbar-right">
                     <li class="nav-item">
                         <a class="nav-link" href="#">your name</a>
                     </li>

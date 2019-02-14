@@ -35,3 +35,4 @@ class Customer(models.Model):
     rate = models.FloatField()
     amount = models.FloatField()
     description = models.CharField(max_length=100, blank=True, default='')
+

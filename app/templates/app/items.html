@@ -1,9 +1,58 @@
 {% extends "app/layout.html" %}
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+
+{% block extrahead %}
+{{ form.media }}
+{% endblock %}
 
 {% block content %}
-<form action="{% url 'items' %}" method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">submit</button>
-</form>
-{% endblock %}
+<div class="card">
+    <div class="card-body">
+        <div class="col-10">
+            <h5 class="card-title">Item Details</h5>
+            {% crispy form %}
+            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p> -->
+            <div class="col-5">
+                <!-- <form action="{% url 'items' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group form-inline">
+                        {{ form.type|as_crispy_field }}
+                    </div>
+
+                    <div class="form-group form-inline">
+                        {{ form.item_name|as_crispy_field }}
+                    </div>
+                    <div class="form-group form-inline">
+                        {{ form.sku|as_crispy_field }}
+                    </div>
+                    <div class="form-group form-inline">
+                        {{ form.unit|as_crispy_field }}
+                    </div>
+
+                    <div class="form-group form-inline">
+                        {{ form.hsn_sac|as_crispy_field }}
+                    </div>
+                    <div class="form-group form-inline">
+                        {{ form.tax|as_crispy_field }}
+                    </div>
+                    <div class="form-group form-inline">
+                        {{ form.information|as_crispy_field }}
+                    </div>
+                    <div class="form-group form-inline">
+                        {{ form.rate|as_crispy_field }}
+                    </div>
+                    <div class="form-group form-inline">
+                        {{ form.amount|as_crispy_field }}
+                    </div>
+                    <div class="form-group form-inline">
+                        {{ form.description|as_crispy_field }}
+                    </div>
+                    <button type="submit">submit</button>
+            </div>
+            </form> -->
+            </div>
+        </div>
+    </div>
+    {% endblock %}

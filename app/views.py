@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Items, Customer
-from .forms import ItemsForm, CustomerForm
+from .forms import ItemsForm, CustomerForm, AddressForm, NotesForm, OtherDetailsForm
 
 
 def index(request):

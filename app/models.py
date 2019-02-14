@@ -23,4 +23,4 @@ class Items(models.Model):
     amount = models.FloatField()
     description = models.CharField(max_length=100, blank=True, default='')
 
-# new model
+# new model1111

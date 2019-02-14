@@ -5,6 +5,7 @@ from crispy_forms.layout import Submit
 
 
 class ItemsForm(forms.ModelForm):
+
     class Meta:
         model = Items
         fields = [
@@ -26,7 +27,7 @@ class ItemsForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-lg-2'
-        self.helper.field_class = 'col-lg-8'
+        self.helper.field_class = 'col-lg-4'
         self.helper.add_input(Submit('submit', 'Submit'))
 
 

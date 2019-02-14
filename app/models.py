@@ -65,6 +65,8 @@ class Customer(models.Model):
 
 
 class Other_details(models.Model):
+    customer = models.OneToOneField(
+        Customer, on_delete=models.CASCADE)
     gst_treatment = models.CharField(choices=GST_CHOICES, max_length=20)
     tax = models.CharField(choices=TAX_CHOICES, max_length=10)
     currency = models.CharField(choices=CURR_CHOICES, max_length=20)
@@ -74,6 +76,8 @@ class Other_details(models.Model):
 
 
 class Address(models.Model):
+    customer = models.OneToOneField(
+        Customer, on_delete=models.CASCADE)
     country = models.CharField(choices=COUN_CHOICES, max_length=120)
     add1 = models.CharField(max_length=100)
     add2 = models.CharField(max_length=100)
@@ -83,4 +87,6 @@ class Address(models.Model):
 
 
 class Notes(models.Model):
+    customer = models.OneToOneField(
+        Customer, on_delete=models.CASCADE)
     note = models.TextField(max_length=150, default='Type your Note here...')

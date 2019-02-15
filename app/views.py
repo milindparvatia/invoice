@@ -4,12 +4,7 @@ from .forms import ItemsForm, CustomerForm, AddressForm, NotesForm, OtherDetails
 
 
 def index(request):
-    puserdata = Items.objects.all().values()
-    image = puserdata[0]['profile_pic']
-    instance = {
-        'image': image,
-    }
-    return render(request, 'app/index.html', instance)
+    return render(request, 'app/index.html')
 
 
 def purchase(request):
@@ -40,6 +35,7 @@ def items(request):
     }
     return render(request, 'app/items.html', instance)
 
+
 def contact(request):
     if request.method == 'POST':
         form = CustomerForm(request.POST)
@@ -52,3 +48,35 @@ def contact(request):
         'form': form
     }
     return render(request, 'app/contact.html', instance)
+
+
+def creditnotes(request):
+    return render(request, 'app/sales/creditnotes.html')
+
+
+def deliverychallans(request):
+    return render(request, 'app/sales/deliverychallans.html')
+
+
+def estimates(request):
+    return render(request, 'app/sales/estimates.html')
+
+
+def invoices(request):
+    return render(request, 'app/sales/invoices.html')
+
+
+def paymentrecevied(request):
+    return render(request, 'app/sales/paymentrecevied.html')
+
+
+def recurringinvoices(request):
+    return render(request, 'app/sales/recurringinvoices.html')
+
+
+def retainerinvoice(request):
+    return render(request, 'app/sales/retainerinvoice.html')
+
+
+def salesorders(request):
+    return render(request, 'app/sales/salesorders.html')

@@ -9,12 +9,80 @@
 {% block content %}
 <div class="card">
     <div class="card-body">
-        <div class="col-10">
-            <h5 class="card-title">Customer</h5>
-            {% crispy form %}
-            <div class="col-5">
-                
-            </div>
+        <div class="col-12">
+            <h5 class="card-title">Contact/Customer Form</h5>
+            <form action="{% url 'contact' %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            {{ form.first_name|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            {{ form.first_name|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            {{ form.last_name|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            {{ form.customer|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            {{ form.gender|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            {{ form.mobile|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            {{ form.email|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            {{ form.company|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            {{ form.website|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            {{ form.skype|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            {{ form.dept|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+            </form>
         </div>
     </div>
-    {% endblock %}
+</div>
+{% endblock %}

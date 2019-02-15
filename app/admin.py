@@ -1,3 +1,5 @@
 from django.contrib import admin
+from app.models import Items
+from django import forms
 
-# Register your models here.
+admin.site.register(Items)

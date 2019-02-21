@@ -52,8 +52,16 @@ class CustomerForm(forms.ModelForm):
         super(CustomerForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_show_labels = False
-        self.helper.add_input(Submit('submit', 'Submit'))
-
+        self.fields['first_name'].widget.attrs = {'placeholder': 'First name'}
+        self.fields['last_name'].widget.attrs = {'placeholder': 'Last name'}
+        self.fields['customer'].widget.attrs = {'placeholder': 'Type of Customer'}
+        self.fields['mobile'].widget.attrs = {'placeholder': 'Contact No.(mobile)'}
+        self.fields['work'].widget.attrs = {'placeholder': 'Contact No.(work)'}
+        self.fields['email'].widget.attrs = {'placeholder': 'Email'}
+        self.fields['company'].widget.attrs = {'placeholder': 'Company Name'}
+        self.fields['website'].widget.attrs = {'placeholder': 'Website'} 
+        self.fields['dept'].widget.attrs = {'placeholder': 'Designation Department'}
+        self.fields['skype'].widget.attrs = {'placeholder': 'Skype Name'}
 
 class AddressForm(forms.ModelForm):
     class Meta:

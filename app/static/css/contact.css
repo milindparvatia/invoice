@@ -1,0 +1,42 @@
+.card {
+    border-radius: 25px;
+    border: 2px solid #004a80;
+  }
+
+.card-title
+{
+    color:#004a80;
+}
+
+.sub-button
+{
+    background-color:#004a80;
+    color: #fff;
+    border-radius: 25px;
+    height:70%;
+    font-weight: bold;
+    float:right;
+    border:none;
+}
+div.scrollmenu {
+    background-color: #004a80;
+    overflow: auto;
+    white-space: nowrap;
+  }
+  
+  div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+  
+  div.scrollmenu a:hover {
+    background-color: #fff;
+    color:#004a80;
+  }
+  div.scrollmenu a:active {
+    background-color: #fff;
+    color:#004a80;
+  }

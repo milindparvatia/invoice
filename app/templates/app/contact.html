@@ -3,8 +3,12 @@
 {% crispy form form.helper %}
 
 {% block extrahead %}
+
 {{ form.media }}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
 {% endblock %}
+
 
 {% block content %}
 <div class="card">
@@ -21,47 +25,46 @@
                     </div>
                     <div class="col-4">
                         <div class="form-group">
-                            {{ form.first_name|as_crispy_field }}
+                            {{ form.last_name|as_crispy_field }}
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">
-                        <div class="form-group">
-                            {{ form.last_name|as_crispy_field }}
-                        </div>
-                    </div>
                     <div class="col-4">
                         <div class="form-group">
                             {{ form.customer|as_crispy_field }}
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-4">
                         <div class="form-group">
                             {{ form.gender|as_crispy_field }}
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-4">
                         <div class="form-group">
                             {{ form.mobile|as_crispy_field }}
                         </div>
                     </div>
-                </div>
-                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            {{ form.work|as_crispy_field }}
+                        </div>
+                    </div>
+
                     <div class="col-4">
                         <div class="form-group">
                             {{ form.email|as_crispy_field }}
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-4">
                         <div class="form-group">
                             {{ form.company|as_crispy_field }}
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-4">
                         <div class="form-group">
                             {{ form.website|as_crispy_field }}
@@ -74,15 +77,22 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-8">
                         <div class="form-group">
                             {{ form.dept|as_crispy_field }}
                         </div>
                     </div>
-                    <div class="col-4"></div>
+                    <div class="col-4"><input class="sub-button" type="submit" value="ADD Customer"></div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<br>
+<div class="scrollmenu">
+    <a href="#home">Other Details</a>
+    <a href="#news">Address</a>
+    <a href="#contact">Notes</a>
+    <a href="#about">Other</a>
+  </div>
 {% endblock %}

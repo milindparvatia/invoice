@@ -23,13 +23,16 @@ div.scrollmenu {
     overflow: auto;
     white-space: nowrap;
     font-weight: bold;
+    padding: 16px;
   }
   
   div.scrollmenu a {
     display: inline-block;
+    block-size: 50px;
     color: white;
     text-align: center;
-    padding: 14px;
+    padding-bottom: 18px;
+    padding-top: 14px;
     text-decoration: none;
   }
   

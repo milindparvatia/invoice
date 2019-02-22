@@ -51,7 +51,20 @@
                     <a href="{% url 'contact' %}"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;Contact/Customer</a>
                 </li>
                 <li>
-                    <a href="{% url 'items' %}"><i class="fas fa-list"></i>&nbsp;&nbsp;Items</a>
+                    <a href="#itemSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-list"></i>&nbsp;&nbsp;Items</a>
+                    <ul class="collapse list-unstyled" id="itemSubmenu">
+                            <div class="show">
+                                <li>
+                                    <a href="{% url 'items' %}">Items</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'inventoryad' %}">Inventory Adjustments</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'pricelist' %}">Price Lists</a>
+                                </li>
+                            </div>
+                        </ul>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
@@ -86,7 +99,32 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{% url 'purchase' %}"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Purchase</a>
+                    <a href="#purchasemenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Purchase</a>
+                    <ul class="collapse list-unstyled" id="purchasemenu">
+                            <div class="show">
+                                <li>
+                                    <a href="{% url 'bills' %}">Bills</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'expenses' %}">Expenses</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'paymade' %}">Payment Made</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'purchaseorders' %}">Purchase Orders</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'recurringbills' %}">Recurring Bills</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'recurringexpenses' %}">Recurring Expenses</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'vendorcredit' %}">Vendor Credits</a>
+                                </li>
+                            </div>
+                        </ul>
                 </li>
                 <li>
                     <a href="{% url 'banking' %}"><i class="fas fa-university"></i>&nbsp;&nbsp;Banking</a>

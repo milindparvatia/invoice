@@ -89,6 +89,28 @@
                     <a href="{% url 'purchase' %}"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Purchase</a>
                 </li>
                 <li>
+                    <a href="{% url 'banking' %}"><i class="fas fa-university"></i>&nbsp;&nbsp;Banking</a>
+                </li>
+                <li>
+                        <a href="#accSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user-tie"></i>&nbsp;&nbsp;Accountant</a>
+                        <ul class="collapse list-unstyled" id="accSubmenu">
+                                <div class="show">
+                                    <li>
+                                        <a href="{% url 'manual' %}">Manual Journals</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'currency' %}">Currency Adjustments</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'chatacc' %}">Chart Of Accounts</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'translocking' %}">Transaction Locking</a>
+                                    </li>
+                                </div>
+                            </ul>
+                </li>
+                <li>
                     <a href="{% url 'reports' %}"><i class="fas fa-chart-line"></i>&nbsp;&nbsp;Reports</a>
                 </li>
                 <li>

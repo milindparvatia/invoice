@@ -80,3 +80,23 @@ def retainerinvoice(request):
 
 def salesorders(request):
     return render(request, 'app/sales/salesorders.html')
+
+
+def manual(request):
+    return render(request, 'app/Accountant/manual.html')
+
+
+def chatacc(request):
+    return render(request, 'app/Accountant/chatacc.html')
+
+
+def currency(request):
+    return render(request, 'app/Accountant/currency.html')
+
+
+def translocking(request):
+    return render(request, 'app/Accountant/translocking.html')
+
+
+def banking(request):
+    return render(request, 'app/banking.html')

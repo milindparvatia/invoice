@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Items, Customer
 from .forms import ItemsForm, CustomerForm, AddressForm, NotesForm, OtherDetailsForm, BillForm
-from .forms import PurchaseOrderForm
+from .forms import PurchaseOrderForm, RecurringBillForm
 
 
 def index(request):
@@ -132,7 +132,17 @@ def purchaseorders(request):
 
 
 def recurringbills(request):
-    return render(request, 'app/purchase/recurringbills.html')
+    if request.method == 'POST':
+        form = RecurringBillForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+    else:
+        form = RecurringBillForm()
+        print('error')
+    instance = {
+        'form': form
+    }
+    return render(request, 'app/purchase/recurringbills.html',instance)
 
 
 def recurringexpenses(request):

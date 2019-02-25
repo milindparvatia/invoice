@@ -41,6 +41,9 @@ PAYTERMS_CHOICES = [('A', 'A'),
 SHIPMENT_CHOICES = [('A', 'A'),
                     ('B', 'B')]
 
+REPEAT_CHOICES = [('A', 'A'),
+                  ('B', 'B')]
+
 
 class Items(models.Model):
     type = models.CharField(choices=TYPE_CHOICES, max_length=10)
@@ -115,3 +118,12 @@ class PurchaseOrder(models.Model):
     date = models.DateField(("Date"))
     delivery_date = models.DateField(("Delivery Date"))
     shipment_preference = models.CharField(choices=SHIPMENT_CHOICES, max_length=120)
+
+
+class RecurringBill(models.Model):
+    vendor_name = models.CharField(max_length=50)
+    profile_name = models.CharField(max_length=50)
+    repeat_every = models.CharField(choices=REPEAT_CHOICES, max_length=120)
+    start = models.DateField(("Start on"), default=date.today)
+    end = models.DateField(("Ends on"), default=date.today)
+    payment_terms = models.CharField(choices=PAYTERMS_CHOICES, max_length=120)

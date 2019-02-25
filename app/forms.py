@@ -1,4 +1,4 @@
-from .models import Items, Customer, Address, Other_details, Notes, Bill, PurchaseOrder
+from .models import Items, Customer, Address, Other_details, Notes, Bill, PurchaseOrder, RecurringBill
 from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -166,3 +166,27 @@ class PurchaseOrderForm(forms.ModelForm):
         self.fields['date'].widget.attrs = {'placeholder': 'Date'}
         self.fields['delivery_date'].widget.attrs = {'placeholder': 'delivery date'}
         self.fields['shipment_preference'].widget.attrs = {'placeholder': 'shipment preference'}
+
+
+class RecurringBillForm(forms.ModelForm):
+    class Meta:
+        model = RecurringBill
+        fields = [
+            'vendor_name',
+            'profile_name',
+            'repeat_every',
+            'start',
+            'end',
+            'payment_terms'
+        ]
+
+    def __init__(self, *args, **kwargs):
+        super(RecurringBillForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_show_labels = True
+        self.fields['vendor_name'].widget.attrs = {'placeholder': 'Vendor name'}
+        self.fields['profile_name'].widget.attrs = {'placeholder': 'Profile Name'}
+        self.fields['repeat_every'].widget.attrs = {'placeholder': 'Repeat Every'}
+        self.fields['start'].widget.attrs = {'placeholder': 'Start'}
+        self.fields['end'].widget.attrs = {'placeholder': 'End'}
+        self.fields['payment_terms'].widget.attrs = {'placeholder': 'Payment Terms'}

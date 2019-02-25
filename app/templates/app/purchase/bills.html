@@ -1,5 +1,72 @@
 {% extends "app/layout.html" %}
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+
+{% block extrahead %}
+
+{{ form.media }}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/bills.css' %}">
+{% endblock %}
+
 
 {% block content %}
-<h1>hello bills</h1>
+<i class="fas fa-plus-square" style="font-size:24px;"></i>&nbsp;&nbsp;New Bill
+<br>
+<br>
+<div class="card col-10">
+    <div class="card-body">
+        <div class="col-12">
+            <form action="{% url 'contact' %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-5">
+                        <div class="form-group">
+                            {{ form.vendor_name|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="form-group">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <div class="form-group">
+                            {{ form.bills|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <div class="form-group">
+                            {{ form.order_number|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <div class="form-group">
+                            {{ form.bill_date|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <div class="form-group">
+                            {{ form.due_date|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="form-group">
+                            {{ form.payment_terms|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
 {% endblock %}

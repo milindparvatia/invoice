@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 TYPE_CHOICES = [('goods', 'Goods'),
                 ('services', 'Services')]
@@ -33,6 +34,12 @@ CITY_CHOICES = [('A', 'A'),
 
 STATE_CHOICES = [('A', 'A'),
                  ('B', 'B')]
+
+PAYTERMS_CHOICES = [('A', 'A'),
+                    ('B', 'B')]
+
+SHIPMENT_CHOICES = [('A', 'A'),
+                    ('B', 'B')]
 
 
 class Items(models.Model):
@@ -90,3 +97,21 @@ class Notes(models.Model):
     customer = models.OneToOneField(
         Customer, on_delete=models.CASCADE)
     note = models.TextField(max_length=150, default='Type your Note here...')
+
+
+class Bill(models.Model):
+    vendor_name = models.CharField(max_length=50)
+    bills = models.CharField(max_length=50)
+    order_number = models.PositiveIntegerField()
+    bill_date = models.DateField(("Bill Date"), default=date.today)
+    due_date = models.DateField(("Due Date"), default=date.today)
+    payment_terms = models.CharField(choices=PAYTERMS_CHOICES, max_length=120)
+
+
+class PurchaseOrder(models.Model):
+    vendor_name = models.CharField(max_length=50)
+    purchase_order_number = models.PositiveIntegerField()
+    reference_number = models.PositiveIntegerField()
+    date = models.DateField(("Date"))
+    delivery_date = models.DateField(("Delivery Date"))
+    shipment_preference = models.CharField(choices=SHIPMENT_CHOICES, max_length=120)

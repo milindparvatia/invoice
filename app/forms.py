@@ -1,4 +1,4 @@
-from .models import Items, Customer, Address, Other_details, Notes
+from .models import Items, Customer, Address, Other_details, Notes, Bill, PurchaseOrder
 from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -119,3 +119,50 @@ class NotesForm(forms.ModelForm):
         self.helper.label_class = 'col-lg-2'
         self.helper.field_class = 'col-lg-8'
         self.helper.add_input(Submit('submit', 'Submit'))
+
+
+class BillForm(forms.ModelForm):
+    class Meta:
+        model = Bill
+        fields = [
+            'vendor_name',
+            'bills',
+            'order_number',
+            'bill_date',
+            'due_date',
+            'payment_terms'
+        ]
+
+    def __init__(self, *args, **kwargs):
+        super(BillForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_show_labels = True
+        self.fields['vendor_name'].widget.attrs = {'placeholder': 'Vendor name'}
+        self.fields['bills'].widget.attrs = {'placeholder': 'Bills'}
+        self.fields['order_number'].widget.attrs = {'placeholder': 'order number'}
+        self.fields['bill_date'].widget.attrs = {'placeholder': 'Bill Date'}
+        self.fields['due_date'].widget.attrs = {'placeholder': 'Due Date'}
+        self.fields['payment_terms'].widget.attrs = {'placeholder': 'Payment Terms'}
+
+class PurchaseOrderForm(forms.ModelForm):
+    class Meta:
+        model = PurchaseOrder
+        fields = [
+            'vendor_name',
+            'purchase_order_number',
+            'reference_number',
+            'date',
+            'delivery_date',
+            'shipment_preference'
+        ]
+
+    def __init__(self, *args, **kwargs):
+        super(PurchaseOrderForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_show_labels = True
+        self.fields['vendor_name'].widget.attrs = {'placeholder': 'Vendor name'}
+        self.fields['purchase_order_number'].widget.attrs = {'placeholder': 'purchase order number'}
+        self.fields['reference_number'].widget.attrs = {'placeholder': 'reference number'}
+        self.fields['date'].widget.attrs = {'placeholder': 'Date'}
+        self.fields['delivery_date'].widget.attrs = {'placeholder': 'delivery date'}
+        self.fields['shipment_preference'].widget.attrs = {'placeholder': 'shipment preference'}

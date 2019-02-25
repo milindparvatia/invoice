@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Items, Customer
-from .forms import ItemsForm, CustomerForm, AddressForm, NotesForm, OtherDetailsForm
+from .forms import ItemsForm, CustomerForm, AddressForm, NotesForm, OtherDetailsForm, BillForm
+from .forms import PurchaseOrderForm
 
 
 def index(request):
@@ -95,7 +96,17 @@ def translocking(request):
 
 
 def bills(request):
-    return render(request, 'app/purchase/bills.html')
+    if request.method == 'POST':
+        form = BillForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+    else:
+        form = BillForm()
+        print('error')
+    instance = {
+        'form': form
+    }
+    return render(request, 'app/purchase/bills.html',instance)
 
 
 def expenses(request):
@@ -107,7 +118,17 @@ def paymade(request):
 
 
 def purchaseorders(request):
-    return render(request, 'app/purchase/purchaseorders.html')
+    if request.method == 'POST':
+        form = PurchaseOrderForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+    else:
+        form = PurchaseOrderForm()
+        print('error')
+    instance = {
+        'form': form
+    }
+    return render(request, 'app/purchase/purchaseorders.html',instance)
 
 
 def recurringbills(request):
